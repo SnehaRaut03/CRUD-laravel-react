@@ -49,4 +49,12 @@ class User extends Authenticatable
             'two_factor_confirmed_at' => 'datetime',
         ];
     }
+
+    /**
+     * Get the posts that this user is added to.
+     */
+    public function addedPosts()
+    {
+        return $this->belongsToMany(Post::class, 'post_user');
+    }
 }

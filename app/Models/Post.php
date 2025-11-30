@@ -15,4 +15,13 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'post_user'); // Make sure pivot table exists
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }

@@ -5,7 +5,7 @@ import { Head,Link, useForm } from '@inertiajs/react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Create Post',
+        title: 'Create Project',
         href: '/posts/Create',
     },
 ]

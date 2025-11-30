@@ -6,7 +6,7 @@ import { Head, Link } from '@inertiajs/react';
 const breadcrumbs: BreadcrumbItem[] = [
     //Breadcrumbs for the top navigation, here it is "posts"
     {
-        title: 'posts',
+        title: 'Project',
         href: '/posts',
     },
 ];
@@ -26,13 +26,25 @@ interface PostsProps {
 export default function Posts({ posts }: PostsProps) {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Posts" />
+            <Head title="Projects" />
             <div className='container mx-auto p-4'>
-                <h1 className='text-2xl font-bold mb-4'>Posts</h1>
-                <Link
-                    href="/posts/create"
-                    className="text-blue-500 hover:underline mb-4 inline-block"
-                >Create New Post</Link>
+                <div className="flex justify-between items-center mb-4">
+                    <h1 className='text-2xl font-bold'>Projects</h1>
+                    <div className="flex gap-4">
+                        <Link
+                            href="/my-projects"
+                            className="text-green-600 hover:underline"
+                        >
+                            My Projects
+                        </Link>
+                        <Link
+                            href="/posts/create"
+                            className="text-blue-500 hover:underline"
+                        >
+                            Create New Project
+                        </Link>
+                    </div>
+                </div>
             </div>
             <div className='overflow-x-auto'>
                 <table className='w-full table-auto shadow-lg bg-white dark:bg-neutral-800'>
@@ -55,8 +67,14 @@ export default function Posts({ posts }: PostsProps) {
             <td className='px-4 py-2 border-b'>{post.updated_at}</td>
             <td className='px-4 py-2 border-b'>
                 <Link
-                    href={`/posts/${post.id}/edit`}
+                    href={`/posts/${post.id}`}
                     className="text-blue-500 hover:underline"
+                >
+                    View
+                </Link>
+                <Link
+                    href={`/posts/${post.id}/edit`}
+                    className="text-blue-500 hover:underline ml-4"
                 >
                     Edit
                 </Link>
@@ -69,6 +87,15 @@ export default function Posts({ posts }: PostsProps) {
                 >
                     Delete
                 </Link>
+                   <Link
+                     href={`/posts/${post.id}/addUser`}
+                    className="text-green-600 hover:underline ml-4">
+                         Add User
+                         </Link>
+
+ 
+
+
             </td>
         </tr>
     ))}
